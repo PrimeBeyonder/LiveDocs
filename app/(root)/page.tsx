@@ -23,7 +23,7 @@ const Home = async() => {
 
       {documents.length > 0 ? (
         <div>
-
+          <p>There is A Doc</p>
         </div>
       ): (
         <div className='document-list-empty'>

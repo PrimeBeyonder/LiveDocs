@@ -7,7 +7,7 @@ import React from 'react'
 const Document = () => {
   return (
     <div>
-    <CollaborativeRoom/>
+    <CollaborativeRoom children={undefined} />
     </div>
   )
 }

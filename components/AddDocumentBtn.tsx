@@ -17,11 +17,22 @@ const AddDocumentBtn = ({userId, email}: AddDocumentBtnProps) => {
         }
       }
   return (
-    <Button type='submit' onClick={addDocumentHandler}>
+    <Button 
+    type='submit' 
+    onClick={addDocumentHandler} 
+    className="gradient-blue flex gap-1 shadow-md"
+    >  
         <Image 
-        src="/assets/icons/add.svg" alt="add" width={24} height={24}
-      />
-        <p className="hidden smLblock">Start A Blank Document</p>
+        src="/assets/icons/add.svg" 
+        alt="add" 
+        width={24}
+        height={24}
+        />
+        <p 
+        className="hidden sm:block"
+        >
+           Start A Blank Document
+        </p>
     </Button>
   )
 }
