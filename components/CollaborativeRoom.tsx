@@ -6,9 +6,9 @@ import { ClientSideSuspense, RoomProvider } from '@liveblocks/react/suspense'
 import React, { ReactNode } from 'react'
 import ActiveCollaborators from './ActiveCollaborators';
 
-const CollaborativeRoom = ({children} : {children : ReactNode}) => {
+const CollaborativeRoom = ({roomId, roomMetadata} : CollaborativeRoomProps) => {
   return (
-    <RoomProvider id="my-room">
+    <RoomProvider id={roomId}>
         <ClientSideSuspense fallback={<div>Loading…</div>}>
           <div className='collaborative-room'>
           <Header>
