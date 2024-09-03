@@ -1,23 +1,22 @@
-import {liveblocks} from "@/lib/liveblocks"
+import { liveblocks } from "@/lib/liveblocks";
 import { getUserColor } from "@/lib/utils";
 import { currentUser } from "@clerk/nextjs/server";
-import { colors } from "@clerk/themes/dist/clerk-js/src/ui/foundations/colors";
-import { info } from "console";
-import {redirect} from "next/navigation";
+import { redirect } from "next/navigation";
 
 export async function POST(request: Request) {
-    const clerkUser = await currentUser();
+  const clerkUser = await currentUser();
 
-    if(!clerkUser) redirect('/sign-in');
+  if(!clerkUser) redirect('/sign-in');
 
-    const {id, firstName, lastName, emailAddresses, imageUrl} = clerkUser;
+  const { id, firstName, lastName, emailAddresses, imageUrl } = clerkUser;
 
+  // Get the current user from your database
   const user = {
     id,
     info: {
       id,
-      name : `${firstName} ${lastName}`,
-      email : emailAddresses[0].emailAddress,
+      name: `${firstName} ${lastName}`,
+      email: emailAddresses[0].emailAddress,
       avatar: imageUrl,
       color: getUserColor(id),
     }

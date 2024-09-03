@@ -7,12 +7,13 @@ import { getClerkUsers } from '@/lib/actions/user.actions';
 const Provider = ({children} : {children: ReactNode}) => {
   return (
     <LiveblocksProvider 
+    authEndpoint='/api/live-blocks-auth'
+
     resolveUsers={async ({ userIds }) => {
       const users = await getClerkUsers({ userIds});
       return users;
     }}
-    authEndpoint='/api/liveblocks-auth'>
-
+    >
       <ClientSideSuspense fallback={<Loader/>}>
         {children}
       </ClientSideSuspense>
