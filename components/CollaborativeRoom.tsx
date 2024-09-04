@@ -69,7 +69,7 @@ const CollaborativeRoom: React.FC<CollaborativeRoomProps> = ({ roomId, roomMetad
   
   return (
     <RoomProvider id={roomId}>
-      <ClientSideSuspense fallback={<div>Loading…</div>}>
+      <ClientSideSuspense fallback={<Loader/>}>
         <div className='collaborative-room'>
           <Header>
             <div ref={containerRef} className='flex w-fit items-center justify-center gap-2'>
