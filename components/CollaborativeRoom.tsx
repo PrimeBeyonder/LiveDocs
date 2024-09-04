@@ -12,14 +12,8 @@ import Loader from './Loader';
 // import ShareModal from './ShareModal';
 
 
-interface CollaborativeRoomProps {
-  roomId: string;
-  roomMetadata?: any;
-}
-
-const CollaborativeRoom: React.FC<CollaborativeRoomProps> = ({ roomId, roomMetadata }) => {
+const CollaborativeRoom: React.FC<CollaborativeRoomProps> = ({ roomId, roomMetadata, users ,currentUserType }: CollaborativeRoomProps) => {
   const [documentTitle , setDocumentTitle] = useState(roomMetadata.title);
-  const currentUserType = "editor";
   const [editing , setEditing] = useState(false);
   const [loading , setLoading] = useState(false);
 
@@ -117,7 +111,7 @@ const CollaborativeRoom: React.FC<CollaborativeRoomProps> = ({ roomId, roomMetad
               </SignedIn>
             </div>
           </Header>
-          <Editor/>
+          <Editor roomId={roomId} currentUserType={currentUserType}/>
         </div>
       </ClientSideSuspense>
     </RoomProvider>
